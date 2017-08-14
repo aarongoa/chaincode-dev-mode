@@ -32,7 +32,7 @@ Make sure correct couchDB container IP and port is specified.
   docker-compose -f docker-compose-simple.yaml up
   
   
-  Terminal 3 - Build & start the marbles02 chaincode
+Terminal 3 - Build & start the marbles02 chaincode
 ----------------------------------------
 
 .. code:: bash
