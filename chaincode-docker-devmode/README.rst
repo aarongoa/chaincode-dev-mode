@@ -121,10 +121,10 @@ Now issue an invoke to move initialize the KV store.
 
 .. code:: bash
 
-  peer chaincode invoke -n mycc -c '{"Args":["invoke","key","hello world"]}' -C myc
+  peer chaincode invoke -n mycc -c '{"Args":["writeFunc1","key","hello world"]}' -C myc
 
 Finally, query ``key``.  We should see a value of ``hello world``.
 
 .. code:: bash
 
-  peer chaincode query -n mycc -c '{"Args":["query","key"]}' -C myc
+  peer chaincode query -n mycc -c '{"Args":["readFunc1","key"]}' -C myc
