@@ -6,7 +6,7 @@ However if we want to perform complex queries on the state content (non-key quer
 
 
 .. note:: Make sure that the required docker images are downloaded. If not then follow the steps in: 
-(https://github.com/nitesh7sid/chaincode-dev-mode/edit/master/chaincode-docker-devmode/README.rst) 
+https://github.com/nitesh7sid/chaincode-dev-mode/blob/master/chaincode-docker-devmode/README.rst 
           
           
 Terminal 1 - Start the couchDB container
