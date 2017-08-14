@@ -14,20 +14,19 @@ Terminal 1 - Start the couchDB container
 
 .. code:: bash
 
-    docker-compose -f docker-compose-simple.yaml up
+    docker-compose -f docker-compose-couchDB.yaml up
 
-The above starts the network with the ``SingleSampleMSPSolo`` orderer profile and
-launches the peer in "dev mode".  It also launches two additional containers -
-one for the chaincode environment and a CLI to interact with the chaincode.  The
-commands for create and join channel are embedded in the CLI container, so we
-can jump immediately to the chaincode calls.
+The above command will start a couchDB container.
 
-Terminal 2 - Build & start the chaincode
+Terminal 2 - Start the network with couchDB IP:port details specified in the docker-compose-simple.yaml
 ----------------------------------------
+
+1. Open docker-compose-simple.yaml and under peer service uncomment the two environment variables
+-CORE_PEER_STATEDB
 
 .. code:: bash
 
-  docker exec -it chaincode bash
+  docker-compose -f docker-compose-simple.yaml up
 
 You should see the following:
 
