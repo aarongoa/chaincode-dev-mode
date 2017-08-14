@@ -92,4 +92,4 @@ Finally, query ``marble1``.
 
   peer chaincode query -C myc -n mycc -c '{"Args":["readMarble","marble1"]}'
   
- For complete list of available functions refer https://github.com/nitesh7sid/chaincode-dev-mode/blob/master/chaincode/marbles02/marbles_chaincode.go
+For complete list of available functions refer https://github.com/nitesh7sid/chaincode-dev-mode/blob/master/chaincode/marbles02/marbles_chaincode.go
