@@ -107,7 +107,7 @@ We'll leverage the CLI container to drive these calls.
 
 .. code:: bash
 
-  peer chaincode install -p chaincodedev/chaincode/chaincode_example02 -n mycc -v 0
+  peer chaincode install -p chaincodedev/chaincode/helloWorld -n mycc -v 0
   peer chaincode instantiate -n mycc -v 0 -c '{"Args":["init"]}' -C myc
 
 Now issue an invoke to move initialize the KV store.
