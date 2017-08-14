@@ -5,7 +5,8 @@ By default peer uses goleveldb as its default embeded key value state database.
 However if we want to perform complex queries on the state content (non-key queries) we can configure the peer to use couchDB as its state database.
 
 
-.. note:: Make sure that the required docker images are downloaded. If not then use the command : 
+.. note:: Make sure that the required docker images are downloaded. If not then follow the stepd in: 
+[a link](https://github.com/nitesh7sid/chaincode-dev-mode/edit/master/chaincode-docker-devmode/Readme.rst) 
           
           
 Terminal 1 - Start the couchDB container
