@@ -22,7 +22,10 @@ Terminal 2 - Start the network with couchDB IP:port details specified in the doc
 ----------------------------------------
 
 1. Open docker-compose-simple.yaml and under peer service uncomment the two environment variables
--CORE_PEER_STATEDB
+- CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+- CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchDB_container_IP:port
+
+Make sure correct couchDB container IP and port is specified.
 
 .. code:: bash
 
