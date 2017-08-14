@@ -30,6 +30,14 @@ Make sure correct couchDB container IP and port is specified.
 .. code:: bash
 
   docker-compose -f docker-compose-simple.yaml up
+  
+  
+  Terminal 3 - Build & start the marbles02 chaincode
+----------------------------------------
+
+.. code:: bash
+
+  docker exec -it chaincode bash
 
 You should see the following:
 
@@ -41,20 +49,20 @@ Now, compile your chaincode:
 
 .. code:: bash
 
-  cd helloWorld
+  cd marbles02
   go build
 
 Now run the chaincode:
 
 .. code:: bash
 
-  CORE_PEER_ADDRESS=peer:7051 CORE_CHAINCODE_ID_NAME=mycc:0 ./helloWorld
+  CORE_PEER_ADDRESS=peer:7051 CORE_CHAINCODE_ID_NAME=mycc:0 ./marbles02
 
 The chaincode is started with peer and chaincode logs indicating successful registration with the peer.
 Note that at this stage the chaincode is not associated with any channel. This is done in subsequent steps
 using the ``instantiate`` command.
 
-Terminal 3 - Use the chaincode
+Terminal 4 - Use the chaincode
 ------------------------------
 
 Even though you are in ``--peer-chaincodedev`` mode, you still have to install the
@@ -69,17 +77,17 @@ We'll leverage the CLI container to drive these calls.
 
 .. code:: bash
 
-  peer chaincode install -p chaincodedev/chaincode/chaincode_example02 -n mycc -v 0
+  peer chaincode install -p chaincodedev/chaincode/marbles02 -n mycc -v 0
   peer chaincode instantiate -n mycc -v 0 -c '{"Args":["init"]}' -C myc
 
-Now issue an invoke to move initialize the KV store.
+Now issue an invoke to create a new marble.
 
 .. code:: bash
 
-  peer chaincode invoke -n mycc -c '{"Args":["writeFunc1","key","hello world"]}' -C myc
+  peer chaincode invoke -C myc -n mycc -c '{"Args":["initMarble","marble1","blue","35","tom"]}
 
-Finally, query ``key``.  We should see a value of ``hello world``.
+Finally, query ``marble1``.
 
 .. code:: bash
 
-  peer chaincode query -n mycc -c '{"Args":["readFunc1","key"]}' -C myc
+  peer chaincode query -C myc -n mycc -c '{"Args":["readMarble","marble1"]}'
