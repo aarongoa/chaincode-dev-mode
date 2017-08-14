@@ -10,13 +10,6 @@ We start "dev mode" by leveraging pre-generated orderer and channel artifacts fo
 a sample dev network.  As such, the user can immediately jump into the process
 of compiling chaincode and driving calls.
 
-Install Fabric Samples
-----------------------
-
-If you haven't already done so, please install the :doc:`samples`.
-
-Navigate to the ``chaincode-docker-devmode`` directory of the ``fabric-samples``
-clone:
 
 .. code:: bash
 
