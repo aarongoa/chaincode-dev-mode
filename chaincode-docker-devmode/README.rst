@@ -86,14 +86,14 @@ Now, compile your chaincode:
 
 .. code:: bash
 
-  cd chaincode_example02
+  cd helloWorld
   go build
 
 Now run the chaincode:
 
 .. code:: bash
 
-  CORE_PEER_ADDRESS=peer:7051 CORE_CHAINCODE_ID_NAME=mycc:0 ./chaincode_example02
+  CORE_PEER_ADDRESS=peer:7051 CORE_CHAINCODE_ID_NAME=mycc:0 ./helloWorld
 
 The chaincode is started with peer and chaincode logs indicating successful registration with the peer.
 Note that at this stage the chaincode is not associated with any channel. This is done in subsequent steps
@@ -115,26 +115,16 @@ We'll leverage the CLI container to drive these calls.
 .. code:: bash
 
   peer chaincode install -p chaincodedev/chaincode/chaincode_example02 -n mycc -v 0
-  peer chaincode instantiate -n mycc -v 0 -c '{"Args":["init","a","100","b","200"]}' -C myc
+  peer chaincode instantiate -n mycc -v 0 -c '{"Args":["init"]}' -C myc
 
-Now issue an invoke to move ``10`` from ``a`` to ``b``.
-
-.. code:: bash
-
-  peer chaincode invoke -n mycc -c '{"Args":["invoke","a","b","10"]}' -C myc
-
-Finally, query ``a``.  We should see a value of ``90``.
+Now issue an invoke to move initialize the KV store.
 
 .. code:: bash
 
-  peer chaincode query -n mycc -c '{"Args":["query","a"]}' -C myc
+  peer chaincode invoke -n mycc -c '{"Args":["invoke","key","hello world"]}' -C myc
 
-Testing new chaincode
----------------------
+Finally, query ``key``.  We should see a value of ``hello world``.
 
-By default, we mount only ``chaincode_example02``.  However, you can easily test different
-chaincodes by adding them to the ``chaincode`` subdirectory and relaunching
-your network.  At this point they will be accessible in your ``chaincode`` container.
+.. code:: bash
 
-.. Licensed under Creative Commons Attribution 4.0 International License
-     https://creativecommons.org/licenses/by/4.0/
+  peer chaincode query -n mycc -c '{"Args":["query","key"]}' -C myc
