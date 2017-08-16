@@ -19,7 +19,7 @@ var logger = shim.NewLogger("hello_world")
 
 /*
  * The Init method is called when the Smart Contract "helloWorld" is instantiated by the blockchain network
- * Best practice is to have any Ledger initialization in separate function -- see initLedger()
+ * Best practice is to have any Ledger initialization in separate function
  */
 func (s *SmartContract) Init(APIstub shim.ChaincodeStubInterface) sc.Response {
 	logger.Info("########### hello_world Init ###########")
