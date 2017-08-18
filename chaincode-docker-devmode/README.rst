@@ -51,6 +51,11 @@ directory in each.
 
 Terminal 1 - Start the network
 ------------------------------
+.. note:: remove all hyperledger docker containers to avoid port conflicts :
+
+.. code:: bash
+
+    docker rm -f $(docker ps -aq)
 
 .. code:: bash
 
