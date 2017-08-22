@@ -46,9 +46,9 @@ func (s *SimpleAssetChaincode) Invoke(APIstub shim.ChaincodeStubInterface)sc.Res
 func (s *SimpleAssetChaincode)initledger(APIstub shim.ChaincodeStubInterface, args[]string) sc.Response{
 
 lname := args[0]
-lmake := args[1]
-lcolor := args[2]
-lowner := args[3]
+lowner := args[1]
+lmake := args[2]
+lcolor := args[3]
 
 car := &car{lname, lowner, lmake, lcolor}
 
