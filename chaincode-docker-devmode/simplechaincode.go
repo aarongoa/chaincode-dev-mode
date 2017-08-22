@@ -81,7 +81,7 @@ func (s *SimpleAssetChaincode) queryCar(APIstub shim.ChaincodeStubInterface, arg
     return shim.Error(err.Error())
   }else if assetInBytes==nil {
     logger.Error("asset car %d has data nil",args[0])
-    return shim.Success(assetInBytes)
+    return shim.Error(assetInBytes)
   }
 
 logger.Info("asset car %d has data",string(assetInBytes))
